@@ -1,0 +1,7 @@
+C:\cosas uni\Segundo\MATES PARA JUEGOS\torres-de-hanoi-master\Torres_de_Hanoi\bin\Debug\Torres_de_Hanoi.exe.config
+C:\cosas uni\Segundo\MATES PARA JUEGOS\torres-de-hanoi-master\Torres_de_Hanoi\bin\Debug\Torres_de_Hanoi.exe
+C:\cosas uni\Segundo\MATES PARA JUEGOS\torres-de-hanoi-master\Torres_de_Hanoi\bin\Debug\Torres_de_Hanoi.pdb
+C:\cosas uni\Segundo\MATES PARA JUEGOS\torres-de-hanoi-master\Torres_de_Hanoi\obj\Debug\Torres_de_Hanoi.csprojAssemblyReference.cache
+C:\cosas uni\Segundo\MATES PARA JUEGOS\torres-de-hanoi-master\Torres_de_Hanoi\obj\Debug\Torres_de_Hanoi.csproj.CoreCompileInputs.cache
+C:\cosas uni\Segundo\MATES PARA JUEGOS\torres-de-hanoi-master\Torres_de_Hanoi\obj\Debug\Torres_de_Hanoi.exe
+C:\cosas uni\Segundo\MATES PARA JUEGOS\torres-de-hanoi-master\Torres_de_Hanoi\obj\Debug\Torres_de_Hanoi.pdb
