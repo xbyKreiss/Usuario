@@ -71,26 +71,67 @@ def print_word(word,same_letter_position,same_letter):
       transformed: La palabra aplicando las transformaciones. En el caso anterior: "Cam--"
     """
     transformed=[]
+
+    for letra in word:
+        for poscionIgual in l1:
+            if word.index(letra) == poscionIgual:
+                transformed.append(letra)
+
     for letra in word:
         for posicionNoIgual in l2:
             if word.index(letra) == posicionNoIgual:
-                transformed.append(letra)
-                print(transformed)
+                transformed.append(letra.lower())
 
+    while len(transformed) < 5:
+        transformed.append("-")
+    
+    return transformed
 
 
 
 res3 =print_word("CAMPO", l1, l2)
 print(res3)
 
-def choose_secret_advanced():
-    """Dado un nombre de fichero, esta funciÃ³n filtra solo las palabras de 5 letras que no tienen acentos (Ã¡,Ã©,Ã­,Ã³,Ãº). De estas palabras, la funciÃ³n devuelve una lista de 15 aleatorias no repetidas y una de estas 15, se selecciona aleatoriamente como palabra secret.
+def choose_secret_advanced(filename):
+    """Dado un nombre de fichero, esta funciÃ³n filtra solo las palabras de 5 letras que no tienen acentos (Ã¡,Ã©,Ã­,Ã³,Ãº). 
+    De estas palabras, la funciÃ³n devuelve una lista de 15 aleatorias no repetidas y una de estas 15, 
+    se selecciona aleatoriamente como palabra secret.
     Args:
       filename: El nombre del fichero. Ej. "palabras_extended.txt"
     Returns:
       selected: Lista de 15 palabras aleatorias no repetidas que tienen 5 letras y no tienen acentos
       secret: Palabra elegida aleatoriamente de la lista de 15 seleccionadas transformada a mayÃºsculas
     """
+
+
+    f = open(filename, mode="rt", encoding="utf-8")
+
+    lista=[]
+    for line in f:
+        line = line.upper()
+        line = line.split()
+        lista.extend(line)#concatenar listas
+    f.close()
+    
+    
+
+    selected=[]
+    listaExcepciones = ["Ã¡","Ã©","Ã­","Ã³","Ãº"]
+    while len(selected) < 15:
+        aleatorio=random.choice(lista)
+        for excepciones in listaExcepciones:
+            if excepciones not in aleatorio and aleatorio not in selected:
+                selected.append(aleatorio) 
+    
+    secret = random.choice(selected)
+
+    return selected, secret
+                        
+                        
+
+
+res4=choose_secret_advanced("ExamenPython\\palabras_extended.txt")
+print(res1)
  
 def check_valid_word():
     """Dada una lista de palabras, esta funciÃ³n pregunta al usuario que introduzca una palabra hasta que introduzca una que estÃ© en la lista. Esta palabra es la que devolverÃ¡ la funciÃ³n.
