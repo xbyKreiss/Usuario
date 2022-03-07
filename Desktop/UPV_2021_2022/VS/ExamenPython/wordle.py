@@ -35,29 +35,34 @@ def compare_words(word, secret):
     """
 
     same_position=[]
+    #mustra una posicion que no esta
     for letra1 in word:
         for letra2 in secret:
             if letra1 == letra2 and word.index(letra1) == word.index(letra1):
-                same_position.append(word.index(letra2))
-                #print(word.index(letra1))
+                same_position.append(secret.index(letra2))
+                #print(secret.index(letra2))
                 
-    return same_position
-'''
+    #return same_position
     same_letter=[]
     for letra1 in word:
         for letra2 in secret:
             if letra1==letra2:
-                same_letter.append(letra2)
-            return same_letter
-    '''
+                same_letter.append(word.index(letra1))
+
+    return same_position, same_letter
+    
     
 
 
-res2=compare_words("CURRO", "CRERM")
+res2=compare_words("CURRO", "CUUMO")
 print(res2)
 
-def print_word():
-    """Dada una palabra, una lista same_position y otra lista same_letter, esta funciÃ³n crearÃ¡ un string donde aparezcan en mayÃºsculas las letras de la palabra que ocupen las posiciones de same_position, en minÃºsculas las letras de la palabra que ocupen las posiciones de same_letter y un guiÃ³n (-) en el resto de posiciones
+l1=[0]
+l2=[1,2]
+def print_word(word,same_letter_position,same_letter):
+    """Dada una palabra, una lista same_position y otra lista same_letter, esta funciÃ³n crearÃ¡ un string donde aparezcan en mayÃºsculas 
+    las letras de la palabra que ocupen las posiciones de same_position, en minÃºsculas las letras de la palabra que ocupen las posiciones 
+    de same_letter y un guiÃ³n (-) en el resto de posiciones
     Args:
       word: Una palabra. Ej. "CAMPO"
       same_letter_position: Lista de posiciones. Ej. [0]
@@ -65,7 +70,19 @@ def print_word():
     Returns:
       transformed: La palabra aplicando las transformaciones. En el caso anterior: "Cam--"
     """
-    
+    transformed=[]
+    for letra in word:
+        for posicionNoIgual in l2:
+            if word.index(letra) == posicionNoIgual:
+                transformed.append(letra)
+                print(transformed)
+
+
+
+
+res3 =print_word("CAMPO", l1, l2)
+print(res3)
+
 def choose_secret_advanced():
     """Dado un nombre de fichero, esta funciÃ³n filtra solo las palabras de 5 letras que no tienen acentos (Ã¡,Ã©,Ã­,Ã³,Ãº). De estas palabras, la funciÃ³n devuelve una lista de 15 aleatorias no repetidas y una de estas 15, se selecciona aleatoriamente como palabra secret.
     Args:
