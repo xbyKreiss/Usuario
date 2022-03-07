@@ -122,24 +122,31 @@ def choose_secret_advanced(filename):
         for excepciones in listaExcepciones:
             if excepciones not in aleatorio and aleatorio not in selected:
                 selected.append(aleatorio) 
-    
-    secret = random.choice(selected)
 
-    return selected, secret
-                        
-                        
+
+    secret = random.choice(selected)
+    return secret, selected                   
 
 
 res4=choose_secret_advanced("ExamenPython\\palabras_extended.txt")
-print(res1)
+print(res4)
  
-def check_valid_word():
-    """Dada una lista de palabras, esta funciÃ³n pregunta al usuario que introduzca una palabra hasta que introduzca una que estÃ© en la lista. Esta palabra es la que devolverÃ¡ la funciÃ³n.
+ 
+
+listaPalabrasAleatorias= ['METRO', 'MEZCAL', 'COGIDO', 'CETINA', 'MERCA', 'RISCO', 'JERGÓN', 'NIDIO', 'NABABO', 'LOMAJE', 'SUERO', 'BAOBAB', 'ARCANO', 'EMIR', 'BOQUÍN'] 
+
+def check_valid_word(selected):
+    """Dada una lista de palabras, esta funciÃ³n pregunta al usuario que introduzca una palabra hasta que introduzca una que estÃ© en la lista. 
+    Esta palabra es la que devolverÃ¡ la funciÃ³n.
     Args:
       selected: Lista de palabras.
     Returns:
       word: Palabra introducida por el usuario que estÃ¡ en la lista.
     """
+    
+
+res5=check_valid_word(listaPalabrasAleatorias)
+print(res5)
 
 if __name__ == "__main__":
     secret=choose_secret("ExamenPython\\palabras_reduced.txt")
