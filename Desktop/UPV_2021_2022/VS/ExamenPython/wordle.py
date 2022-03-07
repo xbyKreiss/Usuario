@@ -1,3 +1,4 @@
+import random
 def choose_secret(filename):
     """Dado un nombre de fichero, esta funciÃ³n devuelve una palabra aleatoria de este fichero transformada a mayÃºsculas.
     Args:
@@ -14,15 +15,17 @@ def choose_secret(filename):
         palabras.extend(line)#concatenar listas
     f.close()
 
-    aleatorio=palabras.random()
+    aleatorio=random.choice(palabras)
     print(aleatorio)
     return aleatorio
 
     
-choose_secret("ExamenPython\\palabras_reduced.txt")
+res1=choose_secret("ExamenPython\\palabras_reduced.txt")
+print(res1)
     
 def compare_words(word, secret):
-    """Dadas dos palabras en mayÃºsculas (word y secret), esta funciÃ³n calcula las posiciones de las letras de word que aparecen en la misma posiciÃ³n en secret, y las posiciones de las letras de word que aparecen en secret pero en una posiciÃ³n distinta.
+    """Dadas dos palabras en mayÃºsculas (word y secret), esta funciÃ³n calcula las posiciones de las letras de word que aparecen en la misma posiciÃ³n en secret,
+     y las posiciones de las letras de word que aparecen en secret pero en una posiciÃ³n distinta.
     Args:
       word: Una palabra. Ej. "CAMPO"
       secret: Una palabra. Ej. "CREMA"
@@ -30,6 +33,28 @@ def compare_words(word, secret):
       same_position: Lista de posiciones de word cuyas letras coinciden en la misma posiciÃ³n en secret. En el caso anterior: [0]
       same_letter: Lista de posiciones de word cuyas letras estÃ¡n en secret pero en posiciones distintas. En el caso anterior: [1,2]
     """
+
+    same_position=[]
+    for letra1 in word:
+        for letra2 in secret:
+            if letra1 == letra2 and word.index(letra1) == word.index(letra1):
+                same_position.append(word.index(letra2))
+                #print(word.index(letra1))
+                
+    return same_position
+'''
+    same_letter=[]
+    for letra1 in word:
+        for letra2 in secret:
+            if letra1==letra2:
+                same_letter.append(letra2)
+            return same_letter
+    '''
+    
+
+
+res2=compare_words("CURRO", "CRERM")
+print(res2)
 
 def print_word():
     """Dada una palabra, una lista same_position y otra lista same_letter, esta funciÃ³n crearÃ¡ un string donde aparezcan en mayÃºsculas las letras de la palabra que ocupen las posiciones de same_position, en minÃºsculas las letras de la palabra que ocupen las posiciones de same_letter y un guiÃ³n (-) en el resto de posiciones
@@ -59,7 +84,7 @@ def check_valid_word():
     """
 
 if __name__ == "__main__":
-    secret=choose_secret("crema")
+    secret=choose_secret("ExamenPython\\palabras_reduced.txt")
     print("Palabra a adivinar: "+secret)#Debug: esto es para que sepas la palabra que debes adivinar
     for repeticiones in range(0,6):
         word = input("Introduce una nueva palabra: ")
