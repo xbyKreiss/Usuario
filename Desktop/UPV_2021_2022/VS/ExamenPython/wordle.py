@@ -144,6 +144,12 @@ def check_valid_word(selected):
       word: Palabra introducida por el usuario que estÃ¡ en la lista.
     """
     
+    palabra="sdfbkjlhsajhfbkasl"
+    while palabra not in selected:
+        print(selected)
+        palabra = input("Dime una palabra para ver si esta en la lista: ")
+        if palabra in selected:
+            return palabra
 
 res5=check_valid_word(listaPalabrasAleatorias)
 print(res5)
